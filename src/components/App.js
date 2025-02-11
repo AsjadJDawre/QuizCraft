@@ -16,10 +16,120 @@ import FinishScreen from './FinishScreen';
 
 import { useEffect, useReducer, useState } from "react";
 import "../index.css";
-
 // Initial state for useReducer
 const initialState = {
-  questions: [],
+  questions: [
+    {
+      question: "What is the purpose of React's `useState` hook?",
+      options: [
+        "To handle side effects in functional components",
+        "To manage and update local component state",
+        "To interact with the DOM directly",
+        "To create reusable components",
+      ],
+      correctOption: 1,
+      points: 5,
+    },
+    {
+      question: "Which method is used to update the state in a React class component?",
+      options: [
+        "setState",
+        "useState",
+        "updateState",
+        "stateUpdater",
+      ],
+      correctOption: 0,
+      points: 5,
+    },
+    {
+      question: "What is the Virtual DOM in React?",
+      options: [
+        "A virtual browser environment for React components",
+        "An in-memory representation of the real DOM",
+        "A tool to manage global state",
+        "A replacement for the actual DOM",
+      ],
+      correctOption: 1,
+      points: 5,
+    },
+    {
+      question: "What does the `useEffect` hook do in React?",
+      options: [
+        "Handles lifecycle events like component mounting and unmounting",
+        "Fetches data from APIs",
+        "Directly updates the DOM",
+        "Allows state management in functional components",
+      ],
+      correctOption: 0,
+      points: 10,
+    },
+    {
+      question: "What is the purpose of the `key` attribute in a list of elements?",
+      options: [
+        "To identify the type of list items",
+        "To improve rendering performance by uniquely identifying elements",
+        "To define the order of list elements",
+        "To store metadata for list elements",
+      ],
+      correctOption: 1,
+      points: 10,
+    },
+    {
+      question: "Which hook would you use for memoizing expensive calculations in React?",
+      options: [
+        "useEffect",
+        "useMemo",
+        "useState",
+        "useReducer",
+      ],
+      correctOption: 1,
+      points: 10,
+    },
+    {
+      question: "What does React's `StrictMode` do?",
+      options: [
+        "Renders components faster by bypassing lifecycle methods",
+        "Detects potential issues in an application and provides warnings",
+        "Improves accessibility for screen readers",
+        "Adds security checks to prevent XSS attacks",
+      ],
+      correctOption: 1,
+      points: 5,
+    },
+    {
+      question: "What is the purpose of `React.Fragment`?",
+      options: [
+        "To return multiple elements without adding extra nodes to the DOM",
+        "To fetch data from APIs more efficiently",
+        "To provide default props for a component",
+        "To manage global application state",
+      ],
+      correctOption: 0,
+      points: 5,
+    },
+    {
+      question: "What is the default behavior of `useReducer` in React?",
+      options: [
+        "It fetches and manages API data",
+        "It provides an alternative to `useState` for complex state logic",
+        "It directly updates the DOM tree",
+        "It manages asynchronous operations",
+      ],
+      correctOption: 1,
+      points: 10,
+    },
+    {
+      question: "What is the primary purpose of React's Context API?",
+      options: [
+        "To handle side effects in components",
+        "To avoid prop drilling by sharing data across components",
+        "To manage form inputs and validation",
+        "To enhance the rendering performance of components",
+      ],
+      correctOption: 1,
+      points: 10,
+    },
+  ],
   status: "ready", // 'loading', 'error', 'ready', 'active', 'finished'
   index: 0,
   answer: null,
@@ -247,7 +357,7 @@ function NewQuestionForm({ dispatch }) {
   };
   
   return (
-      <div  className="p-4 border rounded-lg shadow-lg bg-white">
+      <div  className="p-4 border relative -z-10 rounded-lg shadow-lg bg-[#343a40]">
       <h2 className="text-xl font-semibold mb-4">Add New Question</h2>
 
       {step === 1 && (
