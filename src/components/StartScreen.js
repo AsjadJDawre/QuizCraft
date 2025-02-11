@@ -1,6 +1,6 @@
 function StartScreen({ numQuestions, dispatch ,setAddQuestion}) {
   const handleAddQuestionClick = () => {
-    setAddQuestion((prevState) => !prevState); // Toggle the state
+    // setAddQuestion((prevState) => !prevState); // Toggle the state
     dispatch({ type: "start" })
   };
   return (
